@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+
+		<title>
+            
+            Shopping Cart
+        
+        </title>
+
+		<link rel ="stylesheet" type="text/css" href="Shopping Cart CSS.css">
+
+		<script src="https://kit.fontawesome.com/9088cc6401.js" crossorigin="anonymous"></script>
+
+	</head>
+	
+	<link rel="shortcut icon" type="image/jpg" href="C:\Users\hp\Desktop\College\First Semester\Introduction To Web Technologies\Notepad ++ Files\Project\favicon.ico"/>
+
+    <body>
+
+        <div class="container">
+
+            <h1>
+                
+                Shopping Cart
+            
+            </h1>
+
+            <div class="cart">
+
+                <div class="products">
+
+                    <div class="product">
+
+                        <img src="https://i.imgur.com/oYbYgGQ.jpg">
+
+                        <div class="product-info">
+
+                            <h3 class="product-name">
+                                
+                                Chakki Fresh Atta
+                            
+                            </h3>
+
+                            <h4 class="product-price">
+                                
+                                $15
+                            
+                            </h4>
+
+                            <h4 class="product-offer">
+                                
+                                50%
+                            
+                            </h4>
+
+                            <p class="product-quantity">
+                                
+                                Qnt: 
+                                
+                                <input value="1" name="">
+                            
+                            </p>
+
+                            <p class="product-remove">
+
+                                <i class="fas fa-trash-alt"></i>
+
+                                <span class="remove">
+                                    
+                                    Remove
+                                
+                                </span>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="product">
+
+                        <img src="https://i.imgur.com/mHmTIxp.jpg">
+
+                        <div class="product-info">
+
+                            <h3 class="product-name">
+                                
+                                Maggie
+                            
+                            </h3>
+
+                            <h4 class="product-price">
+                                
+                                $10
+                            
+                            </h4>
+
+                            <h4 class="product-offer">
+                                
+                                20%
+                            
+                            </h4>
+
+                            <p class="product-quantity">
+                                
+                                Qnt: 
+                                
+                                <input value="1" name="">
+                            
+                            </p>
+                            <p class="product-remove">
+
+                                <i class="fas fa-trash-alt"></i>
+
+                                <span class="remove">
+                                    
+                                    Remove
+                                
+                                </span>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+		
+<div class="order-options">
+        <label>
+            <input type="radio" name="order-type" id="delivery" onclick="updateTotalPrice()" checked> Delivery
+        </label>
+        <label>
+            <input type="radio" name="order-type" id="pickup" onclick="updateTotalPrice()"> Pickup
+        </label>
+
+        <!-- Delivery Alert -->
+        <div id="delivery-alert" class="alert">
+            $5 Additional Charges
+        </div>
+
+        <!-- Pickup Alert -->
+        <div id="pickup-alert" class="alert">
+            Contact Number of Store: <br>
+	    (123) 456-7890
+        </div>
+    </div>
+
+                <div class="cart-total">
+
+                    <p>
+
+                        <span>
+                            
+                            Total Price
+                        
+                        </span>
+
+                        <span id="total-price">
+                            
+                             $25
+                        
+                        </span>
+
+                    </p>
+                    <p>
+
+                        <span>
+                            
+                            No. of Items
+                        
+                        </span>
+
+                        <span>
+                            
+                            2
+                        
+                        </span>
+
+                    </p>
+
+                    <p>
+
+                        <span>
+                            
+                            You Save
+                        
+                        </span>
+
+                        <span>
+                            
+                            $17
+                        
+                        </span>
+
+                    </p>
+
+                    <a href="Details For Checkout HTML.html">
+                        
+                        Proceed to Checkout
+                    
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+
+<script>
+    function updateTotalPrice() {
+            const totalPriceElement = document.getElementById('total-price');
+            const deliveryRadio = document.getElementById('delivery');
+            const basePrice = 25; // Base price (replace with actual product price logic if needed)
+            let updatedPrice = basePrice;
+
+            // Show/hide alerts based on the selected option
+            const deliveryAlert = document.getElementById('delivery-alert');
+            const pickupAlert = document.getElementById('pickup-alert');
+            if (deliveryRadio.checked) {
+                deliveryAlert.style.display = 'block';
+                pickupAlert.style.display = 'none';
+                updatedPrice = basePrice + 5; // Add $5 for delivery
+            } else {
+                pickupAlert.style.display = 'block';
+                deliveryAlert.style.display = 'none';
+                updatedPrice = basePrice; // No additional charge for pickup
+            }
+
+            // Update the total price displayed
+            totalPriceElement.innerText = `$${updatedPrice}`;
+        }
+
+// Initialize total price when the page loads (in case the page is reloaded)
+document.addEventListener('DOMContentLoaded', updateTotalPrice);
+
+
+</script>
+</html>
